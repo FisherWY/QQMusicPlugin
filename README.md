@@ -4,7 +4,8 @@
 
 ### 使用方法
 
-1. 克隆项目到本地，将文件放在小程序utils文件夹中
+1. 克隆项目到本地，将"es6-promise.min.js","qqMusicTools.js"文件放在小程序utils文件夹中
+![](https://github.com/FisherWY/QQMusicPlugin/blob/master/pic/step1.png)
 2. 前往微信公众平台=>开发=>开发设置=>服务器域名。添加以下request合法域名
 >https://c.y.qq.com
 3. 在小程序页面js文件中引用qqMusicTools.js：
@@ -29,3 +30,17 @@ const bgAudioManager = wx.getBackgroundAudioManager()
 bgAudioManager.title = 'Music'
 bgAudioManager.src = playRes
 ```
+7. 代码整合到一块：
+```
+const bgAudioManager = wx.getBackgroundAudioManager();
+RequestTools.searchMusic(1, 10, "墙纸").then(function(searchRes) {
+  console.log(searchRes)
+})
+RequestTools.playMusic("001wJ6uF2VCg8P").then(function(playRes) {
+  console.log(playRes)
+  bgAudioManager.title = 'Music'
+  bgAudioManager.src = playRes
+})
+```
+8. 特别说明:
+> 1.当要播放的音乐属于收费音乐时无法播放
