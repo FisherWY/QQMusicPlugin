@@ -33,10 +33,10 @@ bgAudioManager.src = playRes
 7. 代码整合到一块：
 ```
 const bgAudioManager = wx.getBackgroundAudioManager();
-RequestTools.searchMusic(1, 10, "墙纸").then(function(searchRes) {
+musicTool.searchMusic(1, 10, "墙纸").then(function(searchRes) {
   console.log(searchRes)
 })
-RequestTools.playMusic("001wJ6uF2VCg8P").then(function(playRes) {
+musicTool.playMusic("001wJ6uF2VCg8P").then(function(playRes) {
   console.log(playRes)
   bgAudioManager.title = 'Music'
   bgAudioManager.src = playRes
