@@ -18,19 +18,25 @@ musicTool.searchMusic(1, 10, "墙纸").then(function(searchRes) {
 	console.log(searchRes)
 })
 ```
-5. 获取播放音乐链接接口接受1个参数：filename。表示要播放的音乐的文件名，文件名来自searchMusic结果中的"songmid"。（使用PeomiseJS语法）
+5. 获取播放音乐链接接口playMusic接受1个参数：filename。表示要播放的音乐的文件名，文件名来自searchMusic结果中的"songmid"。（使用PeomiseJS语法）
 ```
 musicTool.playMusic("001wJ6uF2VCg8P").then(function(playRes) {
 	console.log(playRes)
 })
 ```
-6. 播放音乐，这里使用BackgroundAudioManager演示
+6. 获取音乐专辑接口getAlbumImage接受1个参数：albumId。该参数来自searchMusic结果中的"albumId"。（使用Promise语法）
+```
+musicTool.getAlbumImage(8220).then(function(res) {
+	console.log(res)
+})
+```
+7. 播放音乐，这里使用BackgroundAudioManager演示
 ```
 const bgAudioManager = wx.getBackgroundAudioManager()
 bgAudioManager.title = 'Music'
 bgAudioManager.src = playRes
 ```
-7. 代码整合到一块：
+8. 代码整合到一块：
 ```
 const bgAudioManager = wx.getBackgroundAudioManager();
 musicTool.searchMusic(1, 10, "墙纸").then(function(searchRes) {
@@ -41,6 +47,9 @@ musicTool.playMusic("001wJ6uF2VCg8P").then(function(playRes) {
   bgAudioManager.title = 'Music'
   bgAudioManager.src = playRes
 })
+musicTool.getAlbumImage(8220).then(function(res) {
+	console.log(res)
+})
 ```
-8. 特别说明:
+9. 特别说明:
 > 1.当要播放的音乐属于收费音乐时无法播放

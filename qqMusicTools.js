@@ -62,8 +62,18 @@ function playMusic(filename) {
   })
 }
 
+// QQ音乐获取专辑图片,接受参数为albumId
+function getAlbumImage(albumId) {
+  return new Promise((resolve, reject) => {
+    var id = parseInt(albumId)
+    var imgUrl = 'http://imgcache.qq.com/music/photo/album_300/'+id%100+'/300_albumpic_'+id+'_0.jpg'
+    resolve(imgUrl)
+  })
+}
+
 module.exports = {
   Promise,
   searchMusic: searchMusic,
   playMusic: playMusic,
+  getAlbumImage: getAlbumImage
 }
