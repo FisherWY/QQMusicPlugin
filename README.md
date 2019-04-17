@@ -4,9 +4,11 @@
 
 ### 使用方法
 
+#### 2019-4-17更新：搜索音乐的返回结果中，已将需要付费播放的歌曲从列表中去除，向有专辑图片的音乐对象添加了专辑图片albumImg。
+
 1. 克隆项目到本地，将"es6-promise.min.js","qqMusicTools.js"文件放在小程序utils文件夹中
 ![](https://github.com/FisherWY/QQMusicPlugin/blob/master/pic/step1.png)
-2. 前往微信公众平台=>开发=>开发设置=>服务器域名。添加以下request合法域名
+2. 前往微信公众平台->开发->开发设置->服务器域名。添加以下request合法域名
 >https://c.y.qq.com
 3. 在小程序页面js文件中引用qqMusicTools.js：
 ```
@@ -36,7 +38,7 @@ const bgAudioManager = wx.getBackgroundAudioManager()
 bgAudioManager.title = 'Music'
 bgAudioManager.src = playRes
 ```
-8. 代码整合到一块：
+8. 代码整合到一块，整个使用流程如下：
 ```
 const bgAudioManager = wx.getBackgroundAudioManager();
 musicTool.searchMusic(1, 10, "墙纸").then(function(searchRes) {

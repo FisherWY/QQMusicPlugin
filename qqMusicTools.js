@@ -10,7 +10,22 @@ function searchMusic(page, number, keyword) {
       success: function (res) {
         console.log("at music search: 音乐搜索成功")
         // console.log(res)
+        // 将返回结果中callback去掉
         var result = JSON.parse(res.data.substring(9,res.data.length-1))
+        for (var i=0; i<result.data.song.list.length; i++) {
+          // 如果这首歌需要付费播放，则将这首歌从列表中去除
+          if (result.data.song.list[i].pay.payplay == 1) {
+            result.data.song.list.splice(i,1)
+            continue
+          }
+          // 如果albumid为0，即没有专辑图片，则不添加albumImg
+          if (result.data.song.list[i].albumid == 0) {
+            continue
+          } else {
+            // 如果专辑图片存在，为歌曲添加专辑图片地址
+            result.data.song.list[i].albumImg = 'http://imgcache.qq.com/music/photo/album_300/' + result.data.song.list[i].albumid % 100 + '/300_albumpic_' + result.data.song.list[i].albumid + '_0.jpg'
+          }
+        }
         resolve(result)
       },
       fail: function (res) {
