@@ -8,7 +8,7 @@
 
 ### 使用方法
 
-**1. 前往[下载页面](https://github.com/FisherWY/QQMusicPlugin/releases)，下载最新v0.1版本，将下载的文件解压放在小程序utils文件夹中**  
+**1. 前往[下载页面](https://github.com/FisherWY/QQMusicPlugin/releases)，下载最新版本，将下载的文件解压放在小程序utils文件夹中**  
 ![](https://github.com/FisherWY/QQMusicPlugin/blob/master/pic/step1.png)  
 **2. 前往微信公众平台->开发->开发设置->服务器域名。添加以下request合法域名**
 >https://c.y.qq.com
